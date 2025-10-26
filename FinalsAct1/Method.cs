@@ -27,29 +27,13 @@ public static class TransactionGenerator
         return date + "-" + new string(transactionNumber);
     }
 }
-public static class TicketPrice
-{
-    public static decimal GetTicketPrice(string ticketClass)
-    {
-        switch (ticketClass)
-        {
-            case "Upper Box - 200":
-                return 200m;
-            case "Lower Box - 400":
-                return 400m;
-            case "Gen Ad - 100":
-                return 100m;
-            default:
-                throw new ArgumentException("Invalid ticket class");
-        }
-    }
-}
+
 
 public static class TotalAmount
 {
-    public static string GetTotal(string Class, int Number)
+    public static string GetTotal(string Class, Double Number)
     {
-        int total = 0;
+        Double total = 0;
 
         switch (Class)
         {
@@ -64,7 +48,7 @@ public static class TotalAmount
                 break;
         }
 
-        total = ((total + 200)) * Convert.ToInt32(Number);
+        total = ((total + 200)) * Convert.ToDouble(Number);
         return total.ToString();
     }
     

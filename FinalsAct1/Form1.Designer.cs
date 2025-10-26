@@ -33,6 +33,8 @@
             this.btnrecords = new System.Windows.Forms.Button();
             this.btnnew = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.TxtTotal = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnsave = new System.Windows.Forms.Button();
             this.tbemail = new System.Windows.Forms.TextBox();
@@ -53,8 +55,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -117,6 +119,8 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.TxtTotal);
+            this.panel3.Controls.Add(this.label11);
             this.panel3.Controls.Add(this.pictureBox1);
             this.panel3.Controls.Add(this.btnsave);
             this.panel3.Controls.Add(this.tbemail);
@@ -140,6 +144,25 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(862, 360);
             this.panel3.TabIndex = 1;
+            // 
+            // TxtTotal
+            // 
+            this.TxtTotal.AutoSize = true;
+            this.TxtTotal.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtTotal.Location = new System.Drawing.Point(557, 298);
+            this.TxtTotal.Name = "TxtTotal";
+            this.TxtTotal.Size = new System.Drawing.Size(0, 13);
+            this.TxtTotal.TabIndex = 20;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(507, 299);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(44, 13);
+            this.label11.TabIndex = 19;
+            this.label11.Text = "Total:";
             // 
             // pictureBox1
             // 
@@ -175,10 +198,10 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(307, 231);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(78, 14);
+            this.label10.Size = new System.Drawing.Size(100, 13);
             this.label10.TabIndex = 16;
             this.label10.Text = "Email Address";
             // 
@@ -192,10 +215,10 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(157, 231);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(68, 14);
+            this.label9.Size = new System.Drawing.Size(81, 13);
             this.label9.TabIndex = 14;
             this.label9.Text = "Contact No.";
             // 
@@ -205,14 +228,15 @@
             this.tbtix.Name = "tbtix";
             this.tbtix.Size = new System.Drawing.Size(131, 20);
             this.tbtix.TabIndex = 13;
+            this.tbtix.TextChanged += new System.EventHandler(this.tbtix_TextChanged);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(20, 231);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(99, 14);
+            this.label8.Size = new System.Drawing.Size(126, 13);
             this.label8.TabIndex = 12;
             this.label8.Text = "Number of Tickets";
             // 
@@ -224,14 +248,15 @@
             this.cbtix.Name = "cbtix";
             this.cbtix.Size = new System.Drawing.Size(333, 21);
             this.cbtix.TabIndex = 11;
+            this.cbtix.SelectedIndexChanged += new System.EventHandler(this.cbtix_SelectedIndexChanged);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(507, 177);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(65, 14);
+            this.label7.Size = new System.Drawing.Size(85, 13);
             this.label7.TabIndex = 10;
             this.label7.Text = "Ticket Class";
             // 
@@ -248,10 +273,10 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(20, 177);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(67, 14);
+            this.label6.Size = new System.Drawing.Size(85, 13);
             this.label6.TabIndex = 8;
             this.label6.Text = "Event Name";
             // 
@@ -266,10 +291,10 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(20, 99);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(48, 14);
+            this.label5.Size = new System.Drawing.Size(60, 13);
             this.label5.TabIndex = 6;
             this.label5.Text = "Address";
             // 
@@ -283,10 +308,10 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(378, 48);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(88, 14);
+            this.label4.Size = new System.Drawing.Size(110, 13);
             this.label4.TabIndex = 4;
             this.label4.Text = "Customer Name";
             // 
@@ -301,10 +326,10 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(20, 48);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(87, 14);
+            this.label3.Size = new System.Drawing.Size(109, 13);
             this.label3.TabIndex = 2;
             this.label3.Text = "Transaction No.";
             // 
@@ -331,6 +356,14 @@
             this.panel2.Size = new System.Drawing.Size(862, 100);
             this.panel2.TabIndex = 0;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Location = new System.Drawing.Point(725, 18);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(70, 70);
+            this.pictureBox2.TabIndex = 1;
+            this.pictureBox2.TabStop = false;
+            // 
             // label1
             // 
             this.label1.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
@@ -344,14 +377,6 @@
             this.label1.Text = "Ticket Reservation System";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Location = new System.Drawing.Point(725, 18);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(70, 70);
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -360,7 +385,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "v";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
@@ -403,6 +428,8 @@
         private System.Windows.Forms.Button btnrecords;
         private System.Windows.Forms.Button btnnew;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label TxtTotal;
     }
 }
 

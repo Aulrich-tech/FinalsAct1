@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Google.Protobuf.Reflection;
 using MySql.Data.MySqlClient;
 
 namespace FinalsAct1
@@ -53,7 +54,7 @@ namespace FinalsAct1
 
             // Total Calculation
             int total = Convert.ToInt32(TotalAmount.GetTotal(cbtix.SelectedItem.ToString(), int.Parse(tbtix.Text)));
-
+            TxtTotal.Text = Convert.ToString(total);
 
 
 
@@ -75,9 +76,21 @@ namespace FinalsAct1
 
             sqlconnection.Close();
 
-            Form2 f2 = new Form2();
-            f2.Show();
-            this.Hide();
+            tbtrans.Text = TransactionGenerator.Generate();
+            tbcs.Clear();
+            tbaddress.Clear();
+            tbtix.Clear();
+            tbcontact.Clear();
+            tbemail.Clear();
+            cbevent.SelectedIndex = 0;
+            cbtix.SelectedIndex = 0;
+            TxtTotal.Text = string.Empty;
+
+            MessageBox.Show("Record Saved!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+
+
         }
 
         private void cbevent_SelectedIndexChanged(object sender, EventArgs e)
@@ -145,8 +158,34 @@ namespace FinalsAct1
 
         }
 
+        private void cbtix_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
+            if (cbtix.SelectedItem != null && tbtix.Text != "")
+            {
+                Double total = Convert.ToDouble(TotalAmount.GetTotal(cbtix.SelectedItem.ToString(), Convert.ToDouble(tbtix.Text)));
+                TxtTotal.Text = "P" + Convert.ToString(total);
+            }
+            
+        }
 
-
+        private void tbtix_TextChanged(object sender, EventArgs e)
+        {
+            foreach (char c in tbtix.Text)
+            {
+                if (!char.IsDigit(c))
+                {
+                    MessageBox.Show("Ticket number should contain only digits.", "Validation Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    tbtix.Focus();
+                    tbtix.Text = "";
+                }
+            }
+            if (cbtix.SelectedItem != null && tbtix.Text != "")
+            {
+                Double total = Convert.ToDouble(TotalAmount.GetTotal(cbtix.SelectedItem.ToString(), Convert.ToDouble(tbtix.Text)));
+                TxtTotal.Text = "P" + Convert.ToString(total);
+            }
+        }
     }
 }

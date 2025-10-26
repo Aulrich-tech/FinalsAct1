@@ -88,7 +88,7 @@ namespace FinalsAct1
                     Event=cbevent.SelectedItem.ToString(), TicketNo=tbtix.Text,
                     TicketClass=cbtix.SelectedItem.ToString(), Contact=tbcontact.Text,
                     Email=tbemail.Text;
-                int total = Convert.ToInt32(TotalAmount.GetTotal(cbtix.SelectedItem.ToString(), int.Parse(tbtix.Text)));
+                Double total = Convert.ToDouble(TotalAmount.GetTotal(cbtix.SelectedItem.ToString(), Convert.ToDouble(tbtix.Text)));
 
 
                 string dbconnect = "SERVER=localhost; database=dbactivity; uid=root";
