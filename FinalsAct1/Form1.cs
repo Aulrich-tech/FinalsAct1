@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace FinalsAct1
 {
@@ -49,7 +50,34 @@ namespace FinalsAct1
             {
                 return;
             }
-            
+
+            // Total Calculation
+            int total = Convert.ToInt32(TotalAmount.GetTotal(cbtix.SelectedItem.ToString(), int.Parse(tbtix.Text)));
+
+
+
+
+
+            // Database Connection
+            string dbconnect = "SERVER=localhost; database=dbactivity; uid=root";
+            MySqlConnection sqlconnection = new MySqlConnection(dbconnect);
+            MySqlCommand sqlcmd = new MySqlCommand();
+
+            sqlconnection.Open();
+
+            sqlcmd.CommandText = $"INSERT INTO tblcustomer (TRN, Customer, Address, Event, Ticket, Class, Total, Contact, Email)" +
+                                 $"VALUES ('{tbtrans.Text}', '{tbcs.Text}', '{tbaddress.Text}', '{cbevent.SelectedItem}', '{tbtix.Text}', '{cbtix.SelectedItem}', '{total}', '{tbcontact.Text}' , '{tbemail.Text}')";
+
+            sqlcmd.CommandType = CommandType.Text;
+            sqlcmd.Connection = sqlconnection;
+
+            sqlcmd.ExecuteNonQuery();
+
+            sqlconnection.Close();
+
+            Form2 f2 = new Form2();
+            f2.Show();
+            this.Hide();
         }
 
         private void cbevent_SelectedIndexChanged(object sender, EventArgs e)
@@ -63,6 +91,7 @@ namespace FinalsAct1
                     label2.ForeColor = Color.Black;
                     btnsave.BackColor = Color.Black;
                     panel1.BackgroundImage = Properties.Resources.basketball;
+                    pictureBox2.Image = Properties.Resources.basketball;
                     break;
 
                 case "News and Others":
@@ -70,6 +99,7 @@ namespace FinalsAct1
                     label2.ForeColor = Color.Orange;
                     btnsave.BackColor = Color.Orange;
                     panel1.BackgroundImage = Properties.Resources.news;
+                    pictureBox2.Image = Properties.Resources.news;
                     break;
 
                 case "Entertainment":
@@ -77,6 +107,7 @@ namespace FinalsAct1
                     label2.ForeColor = Color.Salmon;
                     btnsave.BackColor = Color.Salmon;
                     panel1.BackgroundImage = Properties.Resources.entertainment;
+                    pictureBox2.Image = Properties.Resources.entertainment;
                     break;
 
                 case "Car Shows":
@@ -84,6 +115,7 @@ namespace FinalsAct1
                     label2.ForeColor = Color.Black;
                     btnsave.BackColor = Color.Black;
                     panel1.BackgroundImage = Properties.Resources.car;
+                    pictureBox2.Image = Properties.Resources.car;
                     break;
 
                 case "Seminar and Workshop":
@@ -91,6 +123,7 @@ namespace FinalsAct1
                     label2.ForeColor = Color.SandyBrown;
                     btnsave.BackColor = Color.SandyBrown;
                     panel1.BackgroundImage = Properties.Resources.seminar;
+                    pictureBox2.Image = Properties.Resources.seminar;
                     break;
 
                 case "Training":
@@ -98,6 +131,7 @@ namespace FinalsAct1
                     label2.ForeColor = Color.Black;
                     btnsave.BackColor = Color.Black;
                     panel1.BackgroundImage = Properties.Resources.training;
+                    pictureBox2.Image = Properties.Resources.training;
                     break;
 
                 default:
@@ -106,11 +140,13 @@ namespace FinalsAct1
             }
 
             panel1.BackgroundImageLayout = ImageLayout.Stretch;
-        }
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
 
         }
+
+
+
+
     }
 }

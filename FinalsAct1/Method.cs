@@ -1,13 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Net;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 public static class TransactionGenerator
 {
+
     public static string Generate()
     {
         string date = DateTime.Now.ToString("yyyyMMdd");
@@ -40,6 +44,35 @@ public static class TicketPrice
         }
     }
 }
+
+public static class TotalAmount
+{
+    public static string GetTotal(string Class, int Number)
+    {
+        int total = 0;
+
+        switch (Class)
+        {
+            case "Upper Box - 200":
+                total = 200;
+                break;
+            case "Lower Box - 400":
+                total = 400;
+                break;
+            case "Gen Ad - 100":
+                total = 100;
+                break;
+        }
+
+        total = ((total + 200)) * Convert.ToInt32(Number);
+        return total.ToString();
+    }
+    
+}
+
+
+
+
 public static class NoText
 {
     public static bool Validation(TextBox tbcs, TextBox tbaddress, TextBox tbtix,
@@ -113,7 +146,7 @@ public static class NoText
         }
         foreach (char c in tbcs.Text)
         {
-            if (!char.IsLetter(c))
+            if (char.IsDigit(c))
             {
                 MessageBox.Show("Customer name should only be letters.", "Validation Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -144,5 +177,8 @@ public static class NoText
         return true;
 
     }
+
 }
+
+
 
