@@ -57,6 +57,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -68,6 +69,7 @@
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panel1.BackgroundImage = global::FinalsAct1.Properties.Resources.vivid_blurred_colorful_wallpaper_background;
+            this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.btn_Delete);
             this.panel1.Controls.Add(this.btn_Edit);
             this.panel1.Controls.Add(this.tbemail);
@@ -319,11 +321,11 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label4.Location = new System.Drawing.Point(438, 8);
+            this.label4.Location = new System.Drawing.Point(443, 8);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(143, 14);
+            this.label4.Size = new System.Drawing.Size(173, 14);
             this.label4.TabIndex = 6;
-            this.label4.Text = "Enter Transaction Number:";
+            this.label4.Text = "Enter Customer/Transaction No.:";
             // 
             // btnrecords
             // 
@@ -410,6 +412,18 @@
             this.label1.Text = "Ticket Reservation System";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // label12
+            // 
+            this.label12.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.label12.BackColor = System.Drawing.Color.Transparent;
+            this.label12.Font = new System.Drawing.Font("Microsoft YaHei UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.White;
+            this.label12.Location = new System.Drawing.Point(883, 123);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(182, 35);
+            this.label12.TabIndex = 23;
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -463,5 +477,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox tbemail;
         private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Label label12;
     }
 }

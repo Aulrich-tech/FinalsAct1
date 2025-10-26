@@ -100,7 +100,7 @@ namespace FinalsAct1
 
                 sqlconnection.Open();
 
-                sqlcmd.CommandText = $"UPDATE tblcustomer SET Customer='{Name}', Address='{Address}', Event='{Event}', Ticket='{TicketNo}', Class='{TicketClass}', Total='{total}', Contact='{Contact}', Email='{Email}' WHERE TRN LIKE '%{transNum}%'";
+                sqlcmd.CommandText = $"UPDATE tblcustomer SET Customer='{Name}', Address='{Address}', Event='{Event}', Ticket='{TicketNo}', Class='{TicketClass}', Total='{total}', Contact='{Contact}', Email='{Email}' WHERE TRN LIKE '%{transNum}%' OR Customer = '{transNum}'";
                 sqlcmd.CommandType = CommandType.Text;
                 sqlcmd.Connection = sqlconnection;
 
@@ -135,7 +135,7 @@ namespace FinalsAct1
 
                 sqlconnection.Open();
 
-                sqlcmd.CommandText = $"DELETE FROM tblcustomer WHERE TRN LIKE '%{transNum}%'";
+                sqlcmd.CommandText = $"DELETE FROM tblcustomer WHERE TRN = '{transNum}' OR Customer = '{transNum}'";
                 sqlcmd.CommandType = CommandType.Text;
                 sqlcmd.Connection = sqlconnection;
 
@@ -163,7 +163,7 @@ namespace FinalsAct1
 
             sqlconnection.Open();
 
-            sqlcmd.CommandText = $"SELECT * FROM tblcustomer WHERE TRN = '{transNum}'";
+            sqlcmd.CommandText = $"SELECT * FROM tblcustomer WHERE TRN = '{transNum}' OR Customer LIKE '{transNum}'";
             sqlcmd.CommandType = CommandType.Text;
             sqlcmd.Connection = sqlconnection;
 
@@ -172,7 +172,8 @@ namespace FinalsAct1
             if (sqlreader.HasRows)
                 {
                 while (sqlreader.Read())
-                {
+                {   
+                    label12.Text = sqlreader[0].ToString();
                     tbcs.Text = sqlreader[1].ToString();
                     tbaddress.Text = sqlreader[2].ToString();
                     cbevent.SelectedItem = sqlreader[3].ToString();
@@ -184,7 +185,7 @@ namespace FinalsAct1
             }
             else
             {
-                MessageBox.Show("Transaction Number not found.", "Search Result",
+                MessageBox.Show("Data not found.", "Search Result",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
             } 
 
